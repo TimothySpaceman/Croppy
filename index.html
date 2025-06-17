@@ -7,6 +7,57 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    Coming Soon
+    <div class="container">
+        <h1>Croppy</h1>
+        
+        <div class="controls">
+            <div class="control-group">
+                <h3>📁 Початкове зображення</h3>
+                <div class="file-input-wrapper">
+                    <input type="file" id="imageInput" class="file-input" accept="image/*">
+                    <label for="imageInput" class="file-input-label">Обрати зображення</label>
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <h3>📏 Кінцеві розміри</h3>
+                <div class="dimension-inputs">
+                    <input type="number" id="targetWidth" placeholder="Ширина" min="1" value="300">
+                    <input type="number" id="targetHeight" placeholder="Висота" min="1" value="300">
+                </div>
+                <div class="info-panel">
+                    Вкажи бажані розміри кінцевого зображення
+                </div>
+            </div>
+        </div>
+
+        <div class="crop-container" id="cropContainer" style="display: none;">
+            <div class="image-editor" id="imageEditor">
+                <img id="originalImage" class="original-image" alt="Original image">
+                <div class="crop-overlay" id="cropOverlay">
+                    <div class="crop-selection" id="cropSelection">
+                        <div class="crop-handle nw"></div>
+                        <div class="crop-handle ne"></div>
+                        <div class="crop-handle sw"></div>
+                        <div class="crop-handle se"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="crop-button" id="cropButton">✂️ Обрізка зображення</button>
+            
+            <div class="info-panel">
+                Розташуй і відмасштабуй бажану ділянку зображення. Це та частина зображення, яку буде взято в кінцевий результат.
+            </div>
+        </div>
+
+        <div class="result-section" id="resultSection" style="display: none;">
+            <h3>🎯 Результат</h3>
+            <img id="resultImage" class="result-image" alt="Cropped result">
+            <div class="info-panel" id="resultInfo"></div>
+        </div>
+    </div>
+
+    <script src="./script.js" defer></script>
 </body>
 </html>
